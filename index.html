@@ -97,7 +97,7 @@
       background: radial-gradient(ellipse 70% 60% at 50% 45%, rgba(237, 238, 240, 0.035), transparent 70%), var(--ink-2); }
     .plan { width: 100%; height: auto; display: block; padding: 16px; }
     .plan .walls { fill: none; stroke: var(--text); stroke-linecap: square; }
-    .plan .room { fill: transparent; stroke: transparent; stroke-width: 1.5; cursor: crosshair; transition: fill 160ms var(--ease-out), stroke 160ms var(--ease-out); }
+    .plan .room { fill: transparent; stroke: transparent; stroke-width: 2.5; cursor: crosshair; transition: fill 160ms var(--ease-out), stroke 160ms var(--ease-out); }
     .plan .room:hover, .plan .room.is-on { fill: var(--redline-soft); stroke: var(--redline); }
     .plan:hover .room.is-on:not(:hover) { fill: transparent; stroke: transparent; }
     .plan text { fill: var(--muted); font-size: 12px; text-anchor: middle; pointer-events: none; }
@@ -209,16 +209,17 @@
 
         <div class="model">
           <svg class="plan" viewBox="0 0 400 300" role="img" aria-label="תוכנית דירה לדוגמה. מעבר עם העכבר מעל חדר צובע אותו.">
+            <g class="walls">
+              <rect x="20" y="20" width="360" height="260" stroke-width="4"/>
+              <path stroke-width="2" d="M220 20V80M220 110V170M20 170H70M100 170H250M280 170H380M220 110H380M290 110V170M180 170V280"/>
+            </g>
+            <!-- after the walls: the contour is drawn on top of them -->
             <rect class="room is-on" x="20" y="20" width="200" height="150"/>
             <rect class="room" x="220" y="20" width="160" height="90"/>
             <rect class="room" x="220" y="110" width="70" height="60"/>
             <rect class="room" x="290" y="110" width="90" height="60"/>
             <rect class="room" x="20" y="170" width="160" height="110"/>
             <rect class="room" x="180" y="170" width="200" height="110"/>
-            <g class="walls">
-              <rect x="20" y="20" width="360" height="260" stroke-width="4"/>
-              <path stroke-width="2" d="M220 20V80M220 110V170M20 170H70M100 170H250M280 170H380M220 110H380M290 110V170M180 170V280"/>
-            </g>
             <text x="120" y="92">סלון</text><text class="area" x="120" y="108">28.4 m²</text>
             <text x="300" y="62">מטבח</text><text class="area" x="300" y="78">13.6 m²</text>
             <text x="255" y="144">רחצה</text>
